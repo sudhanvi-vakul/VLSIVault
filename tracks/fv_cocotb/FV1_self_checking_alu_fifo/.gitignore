@@ -1,0 +1,16 @@
+# Build artifacts
+build/
+obj/
+*.o
+*.d
+*.mk
+
+# Simulation outputs
+logs/
+waves/
+*.vcd
+*.fst
+
+# Temporary files
+*.log
+*.out
