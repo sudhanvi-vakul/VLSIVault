@@ -1,0 +1,17 @@
+read_liberty -lib /home/gaganamohankumar/STA/sta_sprint/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog -sv rtl/top.sv
+# hierarchy -top top
+synth -top top
+#proc; opt
+#fsm; opt
+#memory; opt
+
+dfflibmap -liberty /home/gaganamohankumar/STA/sta_sprint/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# Map to Sky130 standard cells (uses the liberty file)
+abc -liberty /home/gaganamohankumar/STA/sta_sprint/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+opt clean 
+
+
+write_verilog -noattr build/top_synth.v
+stat
